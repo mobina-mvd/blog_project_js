@@ -15,20 +15,14 @@ $(function () {
   const data = {
     title: "عنوان مقاله",
     text: "متن تکست مقاله هستش",
-    image: "https://heroshopp.ir/api_demo/storage/organic_farrming.jpg",
-    date: "14041020",
+    date: "1404-10-20",
   };
-  //   api
-  //     .create(data)
-  //     .then((result) => {
-  //       console.log(result);
-  //     })
-  //     .catch((err) => console.error(err));
-
-  //   api
-  //     .delete(20)
-  //     .then((result) => console.log(result))
-  //     .catch((err) => console.error(err));
+  // api
+  //   .create(data)
+  //   .then((result) => {
+  //     console.log(result);
+  //   })
+  //   .catch((err) => console.error(err));
 
   tableBody.click(deleteBlog);
 });
@@ -38,7 +32,7 @@ async function deleteBlog(e) {
     const id = e.target.dataset.id;
     console.log(id);
 
-    if (!confirm("آیا از حذف این پست اطمینان دارید؟")) {
+    if (!confirm("آیا از حذف این مقاله اطمینان دارید؟")) {
       return;
     }
 
@@ -50,8 +44,8 @@ async function deleteBlog(e) {
         row.remove();
       }
       console.log("Success DELETE Blog");
-    } catch (error) {
-      console.error("خطا در حذف پست:", error);
+    } catch (err) {
+      console.error(err);
     }
   }
 }

@@ -10,12 +10,12 @@ class UI {
     let output = "";
 
     dataList.forEach((data) => {
-      let date = this.#formatJalaliDate(data.date);
+      // let date = this.#formatJalaliDate(data.date);
       output += `
             <tr class="odd gradeX">
                 <td class="blogId">${data.id}</td>
                 <td class="hidden-phone">${data.title}</td>
-                <td class="center hidden-phone">${date}</td>
+                <td class="center hidden-phone">${data.date}</td>
                 <td class="hidden-phone">
                     <button data-toggle="button" data-id="${data.id}" class="btn btn-danger btn-delete">
                         <i class="icon-remove"></i> حذف
