@@ -1,9 +1,12 @@
 class UI {
   constructor() {
     this.tableBody = $("#tableBody");
+    this.titleBox = $("#title");
+    this.textBox = $("#text");
+    this.dateBox = $("#date");
   }
 
-  showBlogsOnTable(dataList) {
+  showBlogsOnTablePage(dataList) {
     let output = "";
 
     dataList.forEach((data) => {
@@ -17,12 +20,12 @@ class UI {
                     <button data-toggle="button" data-id="${data.id}" class="btn btn-danger btn-delete">
                         <i class="icon-remove"></i> حذف
                     </button>
-                    <button data-toggle="button" class="btn btn-default">
+                    <a href="update_blog.html?id=${data.id}" class="btn btn-default">
                         <i class="icon-edit"></i> ویرایش
-                    </button>
-                    <button data-toggle="button" class="btn btn-info">
+                    </a>
+                    <a href="show_blog.html?id=${data.id}" class="btn btn-info">
                         <i class="icon-eye-open"></i> مشاهده
-                    </button>
+                    </a>
                 </td>
             </tr>
             `;
@@ -39,5 +42,11 @@ class UI {
     const day = dateStr.substring(6, 8);
 
     return `${year}-${month}-${day}`;
+  }
+
+  showDataOnUpdatePage(data) {
+    this.titleBox.val(data.title);
+    this.textBox.val(data.text);
+    this.dateBox.val(data.date);
   }
 }

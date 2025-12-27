@@ -1,10 +1,9 @@
 class API {
   constructor() {
-    this.endPoint;
+    this.endPoint = "https://heroshopp.ir/api_demo/api/test/blogs";
   }
 
   async getAll() {
-    this.endPoint = "https://heroshopp.ir/api_demo/api/test/blogs";
     const res = await fetch(this.endPoint);
 
     if (res.ok) {
@@ -34,7 +33,7 @@ class API {
     if (res.ok) {
       return res.json();
     } else {
-      throw new Error(`Error on Create Post with ${res.status} Code`);
+      throw new Error(`Error on Create Blog with ${res.status} Code`);
     }
   }
 
@@ -55,7 +54,7 @@ class API {
     if (res.ok) {
       return res.json();
     } else {
-      throw new Error(`Error on Create Post with ${res.status} STATUS Code`);
+      throw new Error(`Error on Create Blog with ${res.status} STATUS Code`);
     }
   }
 
@@ -67,7 +66,18 @@ class API {
     if (res.ok) {
       return res.json();
     } else {
-      throw new Error(`Error on DELETE Post with ${res.status} STATUS Code`);
+      throw new Error(`Error on DELETE Blog with ${res.status} STATUS Code`);
+    }
+  }
+
+  async getBlog(blogId) {
+    const res = await fetch(`${this.endPoint}/${blogId}`);
+
+    if (res.ok) {
+      const data = await res.json();
+      return data.data;
+    } else {
+      throw new Error(`Error on GET Blog with ${res.status} STATUS Code`);
     }
   }
 }

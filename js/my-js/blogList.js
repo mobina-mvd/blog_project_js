@@ -8,7 +8,7 @@ $(function () {
   api
     .getAll()
     .then((blogs) => {
-      ui.showBlogsOnTable(blogs);
+      ui.showBlogsOnTablePage(blogs);
     })
     .catch((err) => console.error(err));
 
