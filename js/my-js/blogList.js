@@ -1,4 +1,6 @@
-const tblBody = $("#tableBody");
+const ui = new UI();
+
+const tableBody = $("#tableBody");
 
 const api = new API();
 
@@ -6,30 +8,7 @@ $(function () {
   api
     .getAll()
     .then((blogs) => {
-      let output = "";
-      blogs.forEach((blog) => {
-        output += `
-            <tr class="odd gradeX">
-
-                                            <td>${blog.id}</td>
-                                            <td class="hidden-phone">${blog.title}</td>
-                                            <td class="center hidden-phone">${blog.date}</td>
-                                            <td class="hidden-phone">
-                                                <button data-toggle="button" class="btn btn-danger">
-                                                    <i class="icon-remove"></i> حذف
-                                                </button>
-                                                <button data-toggle="button" class="btn btn-default">
-                                                    <i class="icon-edit"></i> ویرایش
-                                                </button>
-                                                <button data-toggle="button" class="btn btn-info">
-                                                    <i class="icon-eye-open"></i> مشاهده
-                                                </button>
-                                            </td>
-                                        </tr>
-              `;
-      });
-
-      tblBody.append(output);
+      ui.showBlogsOnTable(blogs);
     })
     .catch((err) => console.error(err));
 
@@ -50,4 +29,29 @@ $(function () {
   //     .delete(20)
   //     .then((result) => console.log(result))
   //     .catch((err) => console.error(err));
+
+  tableBody.click(deleteBlog);
 });
+
+async function deleteBlog(e) {
+  if (e.target.classList.contains("btn-delete")) {
+    const id = e.target.dataset.id;
+    console.log(id);
+
+    if (!confirm("آیا از حذف این پست اطمینان دارید؟")) {
+      return;
+    }
+
+    try {
+      await api.delete(id);
+
+      const row = e.target.closest("tr");
+      if (row) {
+        row.remove();
+      }
+      console.log("Success DELETE Blog");
+    } catch (error) {
+      console.error("خطا در حذف پست:", error);
+    }
+  }
+}
