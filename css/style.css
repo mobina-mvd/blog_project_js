@@ -4054,3 +4054,17 @@ input,
 textarea {
   color: #000 !important;
 }
+
+.animate-spin {
+  animation: spin 1s linear infinite !important;
+  transform: rotate(0deg) !important;
+  display: inline-block !important;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) !important;
+  }
+  100% {
+    transform: rotate(360deg) !important;
+  }
+}

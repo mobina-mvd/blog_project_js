@@ -49,4 +49,38 @@ class UI {
     this.textBox.val(data.text);
     this.dateBox.val(data.date);
   }
+
+  showMessage(message, type = "info") {
+    const alertClasses = {
+      success: "alert-success",
+      error: "alert-danger",
+      warning: "alert-warning",
+      info: "alert-info",
+    };
+
+    const alertClass = alertClasses[type] || alertClasses.info;
+
+    const alertHTML = `
+      <div class="alert ${alertClass} alert-block fade in" role="alert">
+        ${message}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    `;
+
+    const container = $("#message-container");
+
+    if (container) {
+      container.append(alertHTML);
+
+      setTimeout(() => {
+        const currentAlert = container.find(".alert");
+        $(currentAlert).removeClass("show").addClass("fade");
+        $(currentAlert).remove();
+      }, 5000);
+    } else {
+      console.warn("UI: #message-container not found in DOM!");
+    }
+  }
 }
