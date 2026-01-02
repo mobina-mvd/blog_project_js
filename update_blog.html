@@ -97,7 +97,47 @@
 
                                 </header>
                                 <div class="panel-body">
-                                    <div class=" form">
+                                    <div class=" form hidden" id="skeleton">
+                                        <form class="cmxform form-horizontal tasi-form" id="commentForm" method="get"
+                                            action="#">
+                                            <div class="form-group ">
+                                                <label for="title" class="control-label col-lg-2">عنوان مقاله
+                                                </label>
+                                                <div class="col-lg-4">
+                                                    <div class="skeleton-row"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="img" class="control-label col-lg-2">تصویر شاخص</label>
+                                                <div class="col-lg-4">
+                                                    <input class="form-control" id="img" type="file" name="img" />
+                                                    <div class="skeleton-row"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="date" class="control-label col-lg-2">تاریخ نمایش</label>
+                                                <div class="col-lg-4">
+                                                    <div class="skeleton-row"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="text" class="control-label col-lg-2">متن مقاله</label>
+                                                <div class="col-lg-4">
+                                                    <div class="skeleton-row"> </div>
+                                                    <div class="skeleton-row"> </div>
+                                                    <div class="skeleton-row"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-4">
+                                                    <button class="btn btn-danger" type="submit" id="submit">ذخیره
+                                                        اطلاعات</button>
+                                                    <a class="btn btn-default" href="blog_list.html">لغو</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class=" form" id="form">
                                         <form class="cmxform form-horizontal tasi-form" id="commentForm" method="get"
                                             action="#">
                                             <div class="form-group ">

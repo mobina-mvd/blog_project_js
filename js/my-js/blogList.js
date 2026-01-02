@@ -5,13 +5,16 @@ const tableBody = $("#tableBody");
 const api = new API();
 
 $(function () {
+  ui.loading(true);
   api
     .getAll()
     .then((blogs) => {
+      ui.loading(false);
       ui.showBlogsOnTablePage(blogs);
       ui.showMessage("بارگیری با موفقیت انجام شد", "success");
     })
     .catch((err) => {
+      ui.loading(false);
       console.error(err);
       ui.showMessage(err.message, "error");
     });

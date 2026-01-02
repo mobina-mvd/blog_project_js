@@ -4,6 +4,8 @@ class UI {
     this.titleBox = $("#title");
     this.textBox = $("#text");
     this.dateBox = $("#date");
+    this.skeleton = $("#skeleton");
+    this.showBlogForm = $("#form");
   }
 
   showBlogsOnTablePage(dataList) {
@@ -87,6 +89,18 @@ class UI {
       }, 5000);
     } else {
       console.warn("UI: #message-container not found in DOM!");
+    }
+  }
+
+  loading(isVisible) {
+    console.log(this.skeleton);
+
+    if (isVisible) {
+      this.skeleton.removeClass("hidden");
+      this.showBlogForm.addClass("hidden");
+    } else {
+      this.skeleton.addClass("hidden");
+      this.showBlogForm.removeClass("hidden");
     }
   }
 }

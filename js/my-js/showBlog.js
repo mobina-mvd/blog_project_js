@@ -10,12 +10,15 @@ $(function () {
   //     alert("شناسهٔ بلاگ یافت نشد!");
   //     window.location.href = "blog_list.html";
   //   }
+  ui.loading(true);
   api
     .getBlog(blogId)
     .then((blog) => {
+      ui.loading(false);
       ui.showDataOnShowBlogPage(blog);
     })
     .catch((err) => {
+      ui.loading(false);
       console.error(err);
     });
 });

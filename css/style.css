@@ -4068,3 +4068,56 @@ textarea {
     transform: rotate(360deg) !important;
   }
 }
+
+.skeleton-row {
+  animation: loading 1.5s infinite ease-in-out;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  height: 20px;
+  width: 100%;
+}
+
+.skeleton-cell {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* ستون ID: کوچک */
+.skeleton-id {
+  width: 5%;
+}
+
+/* ستون عنوان: بزرگ‌تر */
+.skeleton-title {
+  width: 35%;
+}
+
+/* ستون تاریخ */
+.skeleton-date {
+  width: 20%;
+}
+
+/* ستون دکمه‌ها */
+.skeleton-actions {
+  width: 35%;
+  height: 36px; /* بلندی دکمه‌ها */
+}
+
+.skeleton-btn {
+  display: inline-block;
+  height: 30px;
+  width: 70px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
