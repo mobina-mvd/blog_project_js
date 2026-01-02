@@ -9,8 +9,12 @@ $(function () {
     .getAll()
     .then((blogs) => {
       ui.showBlogsOnTablePage(blogs);
+      ui.showMessage("بارگیری با موفقیت انجام شد", "success");
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      ui.showMessage(err.message, "error");
+    });
 
   const data = {
     title: "عنوان مقاله",

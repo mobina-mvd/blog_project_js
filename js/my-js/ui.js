@@ -49,6 +49,7 @@ class UI {
     this.textBox.val(data.text);
     this.dateBox.val(data.date);
   }
+
   showDataOnShowBlogPage(data) {
     this.titleBox.html(data.title);
     this.textBox.html(data.text);
